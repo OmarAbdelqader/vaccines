@@ -37,11 +37,17 @@
 <body>
     <h1>AlexWest</h1>
     <h2>Interactive Vaccine Input</h2>
-    <button id="addRowBtn">Add Row</button>
+    <p>
+        <select id="sites">
+            <option value="">Choose site</option>
+        </select>
+    </p>
+    <span>
+        <button id="addRowBtn">Add Row</button>
+    </span>
     <table id="vaccineTable">
         <thead>
             <tr>
-                <th>Date</th>
                 <th>Type</th>
                 <th>Vaccine</th>
                 <th>Batch</th>
@@ -53,6 +59,7 @@
             <!-- Rows will be added here dynamically -->
         </tbody>
     </table>
+    <button id="submit">Submit</button>
     <script src="script.js"></script>
 </body>
 </html>

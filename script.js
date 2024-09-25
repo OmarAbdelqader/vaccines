@@ -91,6 +91,20 @@ var Types = new Array("منصرف","منصرف إلى مكان آخر","وارد
     }
     theForm.Batches.options[0].selected = true;
   }
+
+  function updateSites(sites) {
+    // loop through the variable "Sites" and create an <option> element for each site
+    for (let i = 0; i < Sites.length; i++) {
+      const option = document.createElement('option');
+      option.value = Sites[i];
+      option.textContent = Sites[i];
+      sites.appendChild(option);
+    }
+  }
+  const sites = document.getElementById('sites');
+  updateSites(sites);
+
+
   /*var params = {
       "range": "Sheet!A1",
       "majorDimension": "ROWS",
@@ -109,15 +123,13 @@ document.addEventListener('DOMContentLoaded', function() {
   function addRow() {
       const newRow = document.createElement('tr');
       newRow.innerHTML = `
-          <td><input type="date"></td>
           <td>
               <select>
-                  <option value="">Select Type</option>
-                  <option value="type1">Type 1</option>
-                  <option value="type2">Type 2</option>
-                  <option value="type3">Type 3</option>
+              <option value="">Select Type</option>
+              <option value="type1">Type 1</option>
+              <option value="type2">Type 2</option>
+              <option value="type3">Type 3</option>
               </select>
-          </td>
           <td>
               <select>
                   <option value="">Select Vaccine</option>
