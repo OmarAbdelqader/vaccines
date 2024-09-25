@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>new</title>
+  <style>
+     
+  </style>
+</head>
+
+<body>
+
+<script src="script.js" type="text/javascript"></script> 
+<form name="autoSelectForm" action="" method="post">
+  <select size="1" name="Sites" onchange="updateVaccines(this.form)"></select>
+  <select size="1" name="Types" onchange="updateTypes(this.form)"></select>
+  <input type="submit">  
+  <br><br>
+  <span>
+    <select size="1" name="Type" onclick=""></select>
+    <select size="1" name="vaCCines" onchange="updateBatches(this.form)"></select>  
+    <select size="1" name="Batches" onclick=""></select>
+  </span>
+</form>
+<script type="text/javascript">
+  resetForm(document.autoSelectForm);
+</script>
+</body>
+
+</html>
