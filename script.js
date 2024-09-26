@@ -121,15 +121,12 @@ document.addEventListener('DOMContentLoaded', function() {
   addRowBtn.addEventListener('click', addRow);
 
   function addRow() {
+      // If the value of the select element is not empty, create a new row
+      if (document.getElementById('sites').value !== '') {
       const newRow = document.createElement('tr');
       newRow.innerHTML = `
           <td>
-              <select>
-              <option value="">Select Type</option>
-              <option value="type1">Type 1</option>
-              <option value="type2">Type 2</option>
-              <option value="type3">Type 3</option>
-              </select>
+              <select id="type"></select>
           <td>
               <select>
                   <option value="">Select Vaccine</option>
@@ -142,11 +139,37 @@ document.addEventListener('DOMContentLoaded', function() {
           <td><input type="number" min="0" step="1" placeholder="Quantity"></td>
           <td><button onclick="removeRow(this)">Remove</button></td>
       `;
+      // Get the previous row's Type select element if it exists ((DEBUG))
+      // const previousRow = newRow.previousElementSibling;
+      // let previousRowTypeValue = '';
+      // if (previousRow) {
+      //   previousRowTypeValue = previousRow.querySelector('#type').value;
+      // }
+      // Dynamically create the options for the Type select element
+      const typeSelect = newRow.querySelector('#type');
+      for (let i = 0; i < Types.length; i++) {
+        const option = document.createElement('option');
+        option.value = Types[i];
+        option.textContent = Types[i];
+        // Select the previous row's Type option if it matches ((DEBUG))
+        // if (Types[i] === previousRowTypeValue) {
+        //   option.selected = true;
+        // }
+        typeSelect.appendChild(option);
+      }
+      // add the new row to the table
       tbody.appendChild(newRow);
+    }
+  // else if the value of the select element is empty, alert the user
+    else {
+        alert('Please select a site first.');
+    }
   }
 
   window.removeRow = function(button) {
       const row = button.closest('tr');
       row.remove();
   };
+
+  // TODO create the resetTable function
 });
